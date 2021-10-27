@@ -73,7 +73,7 @@ public class Menu {
 		btn_test.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				 var game = new Breakout("ASD");
+				 var game = new Breakout("level2");
 		            game.setVisible(true);
 			}
 		});

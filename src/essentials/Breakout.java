@@ -20,7 +20,7 @@ import java.util.Scanner;
 
 
 public class Breakout extends JFrame {
-
+	ArrayList<String> lines=new ArrayList<String>();
     public Breakout(String map) {
     	read_file(map);
         initUI();
@@ -28,9 +28,9 @@ public class Breakout extends JFrame {
     
     private void read_file(String map)
     {
-    	ArrayList<String> lines=new ArrayList<String>();
+    	
          Path rootDir = Paths.get(".").normalize().toAbsolutePath();
-         File file = new File(rootDir.toString() + "/src/levels/level1.txt");
+         File file = new File(rootDir.toString() + "/src/levels/"+map+".txt");
          Reader input = null;
          if (file.exists()) {
              try {
@@ -51,7 +51,7 @@ public class Breakout extends JFrame {
 
     private void initUI(){
 
-		add(new Board());
+		add(new Board(lines));
         setTitle("Breakout");
 
         setDefaultCloseOperation(EXIT_ON_CLOSE);

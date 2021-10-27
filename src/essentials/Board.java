@@ -20,6 +20,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Board extends JPanel {
@@ -33,9 +34,10 @@ public class Board extends JPanel {
     private int row;
     private int column;
     private int N_OF_BRICKS;
-
-    public Board() {
-
+    ArrayList<String> lines;
+    public Board(ArrayList<String> lines) {
+    	
+    	this.lines=lines;
         initBoard();
     }
 
@@ -50,9 +52,10 @@ public class Board extends JPanel {
 
     private void gameInit() {
     	
-
-     	 row=20;
-         column=11;
+    	 String[] datas = lines.get(0).split(" ");
+    	 column=Integer.parseInt(datas[0]);
+     	 row=Integer.parseInt(datas[1]);
+         
          N_OF_BRICKS=row*column;        
 
         
@@ -64,15 +67,11 @@ public class Board extends JPanel {
         int k = 0;
 
         for (int i = 0; i < row; i++) {
-
+        	String[] colors = lines.get(i+1).split(" ");
             for (int j = 0; j < column; j++) {
-
-                bricks[k] = new Brick(j * 40 + 30, i * 10 + 50);
-                if (j%2==0||i%3==0)
-                {
-                	//bricks[k].setDestroyed(true);
-                }
-                	
+            	
+                
+            	bricks[k] = new Brick(j * 40 + 30, i * 10 + 50,colors[j]);
                 k++;
             }
         }

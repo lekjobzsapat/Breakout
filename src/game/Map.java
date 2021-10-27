@@ -7,6 +7,11 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import essentials.Breakout;
+
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
 public class Map {
 
 	private JFrame frame;
@@ -44,18 +49,40 @@ public class Map {
 		frame.getContentPane().setLayout(null);
 		
 		JLabel lb_level1 = new JLabel("");
+		lb_level1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				var game = new Breakout("level1");
+	            game.setVisible(true);
+			}
+		});
 		lb_level1.setIcon(new ImageIcon(Map.class.getResource("/images/level.png")));
 		lb_level1.setBounds(198, 605, 42, 42);
 		frame.getContentPane().add(lb_level1);
 		
 		
 		
+		
 		JLabel lb_level2 = new JLabel("");
+		lb_level2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				var game = new Breakout("level2");
+	            game.setVisible(true);
+			}
+		});
 		lb_level2.setBounds(252, 473, 42, 42);
 		lb_level2.setIcon(new ImageIcon(Map.class.getResource("/images/level.png")));
 		frame.getContentPane().add(lb_level2);
 		
 		JLabel lb_level3 = new JLabel("");
+		lb_level3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				var game = new Breakout("level3");
+	            game.setVisible(true);
+			}
+		});
 		lb_level3.setBounds(373, 312, 42, 42);
 		lb_level3.setIcon(new ImageIcon(Map.class.getResource("/images/level.png")));
 		frame.getContentPane().add(lb_level3);

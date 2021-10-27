@@ -15,6 +15,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Scanner;
 
 public class Board extends JPanel {
 
@@ -44,9 +50,11 @@ public class Board extends JPanel {
 
     private void gameInit() {
     	
-    	row=20;
-        column=11;
-        N_OF_BRICKS=row*column;
+
+     	 row=20;
+         column=11;
+         N_OF_BRICKS=row*column;        
+
         
 
         ball = new Ball();
@@ -60,9 +68,9 @@ public class Board extends JPanel {
             for (int j = 0; j < column; j++) {
 
                 bricks[k] = new Brick(j * 40 + 30, i * 10 + 50);
-                if (j%2==0)
+                if (j%2==0||i%3==0)
                 {
-                	bricks[k].setDestroyed(true);
+                	//bricks[k].setDestroyed(true);
                 }
                 	
                 k++;

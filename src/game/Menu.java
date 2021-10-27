@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 
+import essentials.Board;
 import essentials.Breakout;
 
 import javax.swing.JButton;
@@ -72,7 +73,7 @@ public class Menu {
 		btn_test.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				 var game = new Breakout();
+				 var game = new Breakout("ASD");
 		            game.setVisible(true);
 			}
 		});

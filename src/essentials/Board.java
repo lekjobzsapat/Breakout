@@ -24,6 +24,9 @@ public class Board extends JPanel {
     private Paddle paddle;
     private Brick[] bricks;
     private boolean inGame = true;
+    private int row;
+    private int column;
+    private int N_OF_BRICKS;
 
     public Board() {
 
@@ -40,19 +43,28 @@ public class Board extends JPanel {
     }
 
     private void gameInit() {
-
-        bricks = new Brick[Commons.N_OF_BRICKS];
+    	
+    	row=20;
+        column=11;
+        N_OF_BRICKS=row*column;
+        
 
         ball = new Ball();
         paddle = new Paddle();
-
+        
+        bricks = new Brick[N_OF_BRICKS];
         int k = 0;
 
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < row; i++) {
 
-            for (int j = 0; j < 6; j++) {
+            for (int j = 0; j < column; j++) {
 
                 bricks[k] = new Brick(j * 40 + 30, i * 10 + 50);
+                if (j%2==0)
+                {
+                	bricks[k].setDestroyed(true);
+                }
+                	
                 k++;
             }
         }
@@ -91,7 +103,7 @@ public class Board extends JPanel {
         g2d.drawImage(paddle.getImage(), paddle.getX(), paddle.getY(),
                 paddle.getImageWidth(), paddle.getImageHeight(), this);
 
-        for (int i = 0; i < Commons.N_OF_BRICKS; i++) {
+        for (int i = 0; i < N_OF_BRICKS; i++) {
 
             if (!bricks[i].isDestroyed()) {
 
@@ -159,14 +171,14 @@ public class Board extends JPanel {
             stopGame();
         }
 
-        for (int i = 0, j = 0; i < Commons.N_OF_BRICKS; i++) {
+        for (int i = 0, j = 0; i < N_OF_BRICKS; i++) {
 
             if (bricks[i].isDestroyed()) {
 
                 j++;
             }
 
-            if (j == Commons.N_OF_BRICKS) {
+            if (j == N_OF_BRICKS) {
 
                 message = "Victory";
                 stopGame();
@@ -214,7 +226,7 @@ public class Board extends JPanel {
             }
         }
 
-        for (int i = 0; i < Commons.N_OF_BRICKS; i++) {
+        for (int i = 0; i < N_OF_BRICKS; i++) {
 
             if ((ball.getRect()).intersects(bricks[i].getRect())) {
 

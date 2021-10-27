@@ -67,5 +67,16 @@ public class Menu {
 		});
 		btn_Exit.setBounds(163, 119, 89, 23);
 		frame.getContentPane().add(btn_Exit);
+		
+		JButton btn_test = new JButton("instant start");
+		btn_test.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				 var game = new Breakout();
+		            game.setVisible(true);
+			}
+		});
+		btn_test.setBounds(163, 185, 89, 23);
+		frame.getContentPane().add(btn_test);
 	}
 }

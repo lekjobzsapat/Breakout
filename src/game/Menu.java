@@ -10,6 +10,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+
 public class Menu {
 
 	private JFrame frame;
@@ -50,9 +51,8 @@ public class Menu {
 		btn_Game.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				EventQueue.invokeLater(() -> {
-
-		            var game = new Breakout();
-		            game.setVisible(true);
+		            Map.Map();
+		           frame.setVisible(false);
 		        });
 			}
 		});

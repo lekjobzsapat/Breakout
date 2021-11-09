@@ -6,9 +6,11 @@ import javax.swing.ImageIcon;
 public class Paddle extends Sprite  {
 
     private int dx;
+    private String level;
 
-    public Paddle() {
-
+    public Paddle(String level)
+    {
+    this.level=level;
         initPaddle();
     }
 
@@ -22,7 +24,7 @@ public class Paddle extends Sprite  {
 
     private void loadImage() {
 
-        var ii = new ImageIcon("src/images/paddle.png");
+        var ii = new ImageIcon("src/"+level+"/paddle.png");
         image = ii.getImage();
     }
 

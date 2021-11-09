@@ -52,8 +52,7 @@ public class Map {
 		lb_level1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				var game = new Breakout("level1");
-	            game.setVisible(true);
+				Loader.Load("level1");
 			}
 		});
 		lb_level1.setIcon(new ImageIcon(Map.class.getResource("/images/level.png")));
@@ -67,8 +66,7 @@ public class Map {
 		lb_level2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				var game = new Breakout("level2");
-	            game.setVisible(true);
+				Loader.Load("level2");
 			}
 		});
 		lb_level2.setBounds(252, 473, 42, 42);
@@ -79,8 +77,7 @@ public class Map {
 		lb_level3.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				var game = new Breakout("level3");
-	            game.setVisible(true);
+				Loader.Load("level3");
 			}
 		});
 		lb_level3.setBounds(373, 312, 42, 42);

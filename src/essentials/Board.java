@@ -35,9 +35,11 @@ public class Board extends JPanel {
     private int column;
     private int N_OF_BRICKS;
     ArrayList<String> lines;
-    public Board(ArrayList<String> lines) {
+    String level_name;
+    public Board(String level_name,ArrayList<String> lines) {
     	
     	this.lines=lines;
+    	this.level_name=level_name;
         initBoard();
     }
 
@@ -52,26 +54,26 @@ public class Board extends JPanel {
 
     private void gameInit() {
     	
-    	 String[] datas = lines.get(0).split(" ");
-    	 column=Integer.parseInt(datas[0]);
-     	 row=Integer.parseInt(datas[1]);
+    	 //String[] datas = lines.get(0).split(" ");
+    	 column=11;
+     	 row=2;
          
          N_OF_BRICKS=row*column;        
 
         
 
-        ball = new Ball();
-        paddle = new Paddle();
+        ball = new Ball(level_name);
+        paddle = new Paddle(level_name);
         
         bricks = new Brick[N_OF_BRICKS];
         int k = 0;
 
         for (int i = 0; i < row; i++) {
-        	String[] colors = lines.get(i+1).split(" ");
+        	String[] colors = lines.get(i).split(" ");
             for (int j = 0; j < column; j++) {
-            	
+            	System.out.println("i: "+i+" j: "+j +"colors: " +colors.length);
                 
-            	bricks[k] = new Brick(j * 40 + 30, i * 10 + 50,colors[j]);
+            	bricks[k] = new Brick(j * 40 + 30, i * 10 + 50,level_name+"/"+colors[j]);
                 k++;
             }
         }

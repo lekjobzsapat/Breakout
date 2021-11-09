@@ -6,10 +6,10 @@ import javax.swing.ImageIcon;
 public class Brick extends Sprite {
 
     private boolean destroyed;
-    private String color;
+    private String brick_path;
 
-    public Brick(int x, int y,String color) {
-    	this.color=color;
+    public Brick(int x, int y,String brick_path) {
+    	this.brick_path=brick_path;
         initBrick(x, y);
     }
 
@@ -26,19 +26,9 @@ public class Brick extends Sprite {
 
     private void loadImage() {
 
-        var ii= new ImageIcon("src/images/brick_pink.png");
         
-        switch(color)
-        {
-        case "b": ii= new ImageIcon("src/images/brick_blue.png");		break;
-        case "g": ii= new ImageIcon("src/images/brick_green.png");	break;
-        case "l": ii= new ImageIcon("src/images/brick_light_blue.png");	break;
-        case "o": ii= new ImageIcon("src/images/brick_orange.png");	break;
-        case "p": ii= new ImageIcon("src/images/brick_pink.png");	break;
-        case "u": ii= new ImageIcon("src/images/brick_purple.png");	break;
-        case "r": ii= new ImageIcon("src/images/brick_red.png");	break;
-        case "y": ii= new ImageIcon("src/images/brick_yellow.png");	break;
-        }
+        var ii= new ImageIcon("src/"+brick_path+".png");
+        //ii= new ImageIcon("src/level1/red.png");
         image = ii.getImage();
     }
 

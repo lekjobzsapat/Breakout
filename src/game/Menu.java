@@ -73,8 +73,8 @@ public class Menu {
 		btn_test.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				 var game = new Breakout("level2");
-		            game.setVisible(true);
+				 //var game = new Breakout("level2");
+		           // game.setVisible(true);
 			}
 		});
 		btn_test.setBounds(163, 185, 89, 23);

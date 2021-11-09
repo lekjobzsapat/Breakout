@@ -18,9 +18,7 @@ import essentials.Breakout;
 
 public final  class Loader {
 	
-	static private ArrayList<String> lines=new ArrayList<String>();
-	static private int[] datas;
-	static private String level_name;
+	
 	static void Load(String file_name)
 	{
 		
@@ -35,7 +33,9 @@ public final  class Loader {
 		int column;
 		int width;
 		int height;
-		
+		ArrayList<String> lines=new ArrayList<String>();
+	 	int[] datas;
+	 	String level_name;
 		
 		 try {
 		     File xmlFile = new File("src/"+file_name+"/Info.xml");
@@ -44,7 +44,7 @@ public final  class Loader {
 		     Document doc = builder.parse(xmlFile);
 		     NodeList levelNodes = doc.getElementsByTagName("level");
 		     
-		     
+		    
 		     
 		     Node levelNode = levelNodes.item(0);
 		     
@@ -67,14 +67,14 @@ public final  class Loader {
 
 		     }
 		     datas= new int[]{row,column,width,height};
-		     Startlevel(file_name);
+		     Startlevel(level_name,file_name,lines,datas);
 		 } catch (ParserConfigurationException | SAXException | IOException e) {
 		     e.printStackTrace();
 		 }
 		 
 	}
 	
-	private static void Startlevel(String file_name) {
+	private static void Startlevel(String level_name,String file_name,ArrayList<String> lines,int[] datas ) {
 		var game = new Breakout(level_name,file_name,lines,datas);
 		game.setVisible(true);
 	}

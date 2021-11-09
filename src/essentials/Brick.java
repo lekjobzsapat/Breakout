@@ -28,8 +28,8 @@ public class Brick extends Sprite {
 
         
         var ii= new ImageIcon("src/"+brick_path+".png");
-        //ii= new ImageIcon("src/level1/red.png");
         image = ii.getImage();
+        System.out.println("src/"+brick_path+".png");
     }
 
     boolean isDestroyed() {

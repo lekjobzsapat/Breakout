@@ -1,11 +1,12 @@
 package essentials;
 
 
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
 
-
+import java.awt.Image;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -45,6 +46,7 @@ public class Board extends JPanel {
     	this.lines=lines;
     	this.level_name=level_name;
     	this.datas=datas;
+    	System.out.println("Board: level_name "+this.level_name);
         initBoard();
     }
 
@@ -54,17 +56,6 @@ public class Board extends JPanel {
         setFocusable(true);
         setPreferredSize(new Dimension(Commons.WIDTH, Commons.HEIGHT));
         
-        
-        
-        /*frame = new JFrame();
-		frame.setBounds(100, 100, 869, 715);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
-        
-        JLabel lb_background = new JLabel("");
-        lb_background.setIcon(new ImageIcon(Map.class.getResource("/images/map.jpg")));
-		lb_background.setBounds(-12, -32, 913, 723);
-		frame.getContentPane().add(lb_background);*/
 
         gameInit();
     }
@@ -91,10 +82,12 @@ public class Board extends JPanel {
         for (int i = 0; i < row; i++) {
         	String[] colors = lines.get(i).split(" ");
             for (int j = 0; j < column; j++) {
-            	System.out.println("i: "+i+" j: "+j +"colors: " +colors.length);
+            	
                 
             	bricks[k] = new Brick(j * width + 30, i * height + 50,level_name+"/"+colors[j]);
+            	
                 k++;
+                
             }
         }
 
@@ -107,7 +100,8 @@ public class Board extends JPanel {
         super.paintComponent(g);
         
         var g2d = (Graphics2D) g;
-
+        
+        
 
 
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
@@ -128,7 +122,13 @@ public class Board extends JPanel {
     }
 
     private void drawObjects(Graphics2D g2d) {
-
+    	
+    	Image image;
+      	var ii = new ImageIcon("src/"+level_name+"/background.png");
+        image = ii.getImage();
+      	g2d.drawImage(image, 0, 0, 900, 800, this);
+    	
+    	
         g2d.drawImage(ball.getImage(), ball.getX(), ball.getY(),
                 ball.getImageWidth(), ball.getImageHeight(), this);
         g2d.drawImage(paddle.getImage(), paddle.getX(), paddle.getY(),
@@ -143,6 +143,7 @@ public class Board extends JPanel {
                         bricks[i].getImageHeight(), this);
             }
         }
+        
     }
 
     private void gameFinished(Graphics2D g2d) {

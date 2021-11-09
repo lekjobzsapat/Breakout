@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <level>
-        <background>yong</background>
         <name>Minecraft</name>
-		<line>b b b b b g l l o o g</line>
-		<line>r r r r r r r r r r</line>
+		<row>2</row>
+		<column>11</column>
+		<width>40</width>
+		<height>40</height>
+		<line>cobble dirt cobble dirt cobble dirt cobble dirt cobble dirt cobble</line>
+		<line>dirt cobble dirt cobble dirt cobble dirt cobble dirt cobble dirt</line>
 </level>

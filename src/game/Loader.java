@@ -18,7 +18,9 @@ import essentials.Breakout;
 
 public final  class Loader {
 	
-	static ArrayList<String> lines=new ArrayList<String>();
+	static private ArrayList<String> lines=new ArrayList<String>();
+	static private int[] datas;
+	static private String level_name;
 	static void Load(String file_name)
 	{
 		
@@ -28,7 +30,11 @@ public final  class Loader {
 	private static void readXml(String file_name)
 	{
 		int lines_count;
-		String level_name;
+		
+		int row;
+		int column;
+		int width;
+		int height;
 		
 		
 		 try {
@@ -38,14 +44,17 @@ public final  class Loader {
 		     Document doc = builder.parse(xmlFile);
 		     NodeList levelNodes = doc.getElementsByTagName("level");
 		     
-		     String background_name = doc.getElementsByTagName("line").toString();
 		     
 		     
 		     Node levelNode = levelNodes.item(0);
 		     
 		     Element levelElement = (Element) levelNode;
-		     level_name = levelElement.getElementsByTagName("name").item(0).getTextContent();
 		     lines_count=doc.getElementsByTagName("line").getLength();
+		     level_name = levelElement.getElementsByTagName("name").item(0).getTextContent();
+		     row=Integer.parseInt(levelElement.getElementsByTagName("row").item(0).getTextContent());
+		     column=Integer.parseInt(levelElement.getElementsByTagName("column").item(0).getTextContent());
+		     width=Integer.parseInt(levelElement.getElementsByTagName("width").item(0).getTextContent());
+		     height=Integer.parseInt(levelElement.getElementsByTagName("height").item(0).getTextContent());
 		     
 		     
 		     //System.out.println("background_name = " + background_name);
@@ -57,6 +66,7 @@ public final  class Loader {
 		         lines.add(levelElement.getElementsByTagName("line").item(i).getTextContent());
 
 		     }
+		     datas= new int[]{row,column,width,height};
 		     Startlevel(file_name);
 		 } catch (ParserConfigurationException | SAXException | IOException e) {
 		     e.printStackTrace();
@@ -65,7 +75,7 @@ public final  class Loader {
 	}
 	
 	private static void Startlevel(String file_name) {
-		var game = new Breakout(file_name,lines);
+		var game = new Breakout(level_name,file_name,lines,datas);
 		game.setVisible(true);
 	}
 	

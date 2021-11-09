@@ -1,7 +1,11 @@
 package essentials;
 
+
 import javax.swing.JPanel;
 import javax.swing.Timer;
+
+
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -15,13 +19,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+
 import java.util.ArrayList;
-import java.util.Scanner;
+
 
 public class Board extends JPanel {
 
@@ -33,13 +33,18 @@ public class Board extends JPanel {
     private boolean inGame = true;
     private int row;
     private int column;
+    private int width;
+    private int height;
     private int N_OF_BRICKS;
     ArrayList<String> lines;
     String level_name;
-    public Board(String level_name,ArrayList<String> lines) {
+    int[] datas;
+    //private JFrame frame;
+    public Board(String level_name,ArrayList<String> lines,int[]datas ) {
     	
     	this.lines=lines;
     	this.level_name=level_name;
+    	this.datas=datas;
         initBoard();
     }
 
@@ -48,15 +53,30 @@ public class Board extends JPanel {
         addKeyListener(new TAdapter());
         setFocusable(true);
         setPreferredSize(new Dimension(Commons.WIDTH, Commons.HEIGHT));
+        
+        
+        
+        /*frame = new JFrame();
+		frame.setBounds(100, 100, 869, 715);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+        
+        JLabel lb_background = new JLabel("");
+        lb_background.setIcon(new ImageIcon(Map.class.getResource("/images/map.jpg")));
+		lb_background.setBounds(-12, -32, 913, 723);
+		frame.getContentPane().add(lb_background);*/
 
         gameInit();
     }
 
     private void gameInit() {
     	
-    	 //String[] datas = lines.get(0).split(" ");
-    	 column=11;
-     	 row=2;
+    	 row=datas[0];
+    	 column=datas[1];
+    	 width=datas[2];
+    	 height=datas[3];
+    	 
+     	 
          
          N_OF_BRICKS=row*column;        
 
@@ -73,7 +93,7 @@ public class Board extends JPanel {
             for (int j = 0; j < column; j++) {
             	System.out.println("i: "+i+" j: "+j +"colors: " +colors.length);
                 
-            	bricks[k] = new Brick(j * 40 + 30, i * 10 + 50,level_name+"/"+colors[j]);
+            	bricks[k] = new Brick(j * width + 30, i * height + 50,level_name+"/"+colors[j]);
                 k++;
             }
         }
@@ -85,8 +105,10 @@ public class Board extends JPanel {
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-
+        
         var g2d = (Graphics2D) g;
+
+
 
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
                 RenderingHints.VALUE_ANTIALIAS_ON);

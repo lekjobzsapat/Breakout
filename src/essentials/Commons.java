@@ -2,8 +2,8 @@ package essentials;
 
 public interface Commons {
 
-    int WIDTH = 500;
-    int HEIGHT = 700;
+    int WIDTH = 900;
+    int HEIGHT = 800;
     int BOTTOM_EDGE = 690;
     int INIT_PADDLE_X = 200;
     int INIT_PADDLE_Y = 660;

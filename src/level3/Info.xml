@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<level>
+        <name>Dimat</name>
+		<row>2</row>
+		<column>8</column>
+		<width>95</width>
+		<height>15</height>
+		<line>axi1 axi4 axi3 axi2 axi5 axi2 axi7 axi6</line>
+		<line>axi1 axi2 axi7 axi3 axi5 axi7 axi2 axi1</line>
+		<line>axi6 axi4 axi7 axi2 axi5 axi7 axi4 axi1</line>
+		<line>axi2 axi3 axi1 axi3 axi3 axi7 axi2 axi2</line>
+</level>

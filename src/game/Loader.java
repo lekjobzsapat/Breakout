@@ -10,7 +10,9 @@ import org.w3c.dom.Node;
 import org.w3c.dom.Element;  
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
+import org.springframework.core.io;
 
 
 import essentials.Board;
@@ -38,7 +40,11 @@ public final  class Loader {
 	 	String level_name;
 		
 		 try {
-		     File xmlFile = new File("src/"+file_name+"/Info.xml");
+			 //getClass().getResource("/excludedir.properties").getFile())
+		     //File xmlFile = new File("src/"+file_name+"/Info.xml");
+			 System.out.println("src/"+file_name+"/Info.xml");
+			 File xmlFile = new File(Loader.class.getResource("src/"+file_name+"/Info.xml").getFile());
+			 
 		     DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		     DocumentBuilder builder = factory.newDocumentBuilder();
 		     Document doc = builder.parse(xmlFile);

@@ -10,12 +10,9 @@ import org.w3c.dom.Node;
 import org.w3c.dom.Element;  
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
-import org.springframework.core.io;
 
 
-import essentials.Board;
 import essentials.Breakout;
 
 public final  class Loader {
@@ -24,10 +21,14 @@ public final  class Loader {
 	static void Load(String file_name)
 	{
 		
-		readXml(file_name);
+		
+		String datapath = System.getProperty("user.dir")+"/data";
+	      File file_datapath = new File(datapath);
+	      readXml(file_name,file_datapath);
+
 	}
 	
-	private static void readXml(String file_name)
+	private static void readXml(String file_name,File file_datapath)
 	{
 		int lines_count;
 		
@@ -38,12 +39,13 @@ public final  class Loader {
 		ArrayList<String> lines=new ArrayList<String>();
 	 	int[] datas;
 	 	String level_name;
+	 	String datapath=file_datapath.getPath()+"/";
 		
 		 try {
 			 //getClass().getResource("/excludedir.properties").getFile())
-		     //File xmlFile = new File("src/"+file_name+"/Info.xml");
-			 System.out.println("src/"+file_name+"/Info.xml");
-			 File xmlFile = new File(Loader.class.getResource("src/"+file_name+"/Info.xml").getFile());
+		     File xmlFile = new File(datapath+file_name+"/Info.xml");
+			 System.out.println(datapath+file_name+"/Info.xml");
+			 //File xmlFile = new File(Loader.class.getResource("src/"+file_name+"/Info.xml").getFile());
 			 
 		     DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		     DocumentBuilder builder = factory.newDocumentBuilder();
@@ -73,15 +75,15 @@ public final  class Loader {
 
 		     }
 		     datas= new int[]{row,column,width,height};
-		     Startlevel(level_name,file_name,lines,datas);
+		     Startlevel(level_name,file_name,lines,datas,datapath);
 		 } catch (ParserConfigurationException | SAXException | IOException e) {
 		     e.printStackTrace();
 		 }
 		 
 	}
 	
-	private static void Startlevel(String level_name,String file_name,ArrayList<String> lines,int[] datas ) {
-		var game = new Breakout(level_name,file_name,lines,datas);
+	private static void Startlevel(String level_name,String file_name,ArrayList<String> lines,int[] datas,String datapath ) {
+		var game = new Breakout(level_name,file_name,lines,datas,datapath);
 		game.setVisible(true);
 	}
 	

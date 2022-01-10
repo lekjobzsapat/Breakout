@@ -8,8 +8,9 @@ public class Brick extends Sprite {
     private boolean destroyed;
     private String brick_path;
 
-    public Brick(int x, int y,String brick_path) {
+    public Brick(int x, int y,String brick_path,String tdatapath) {
     	this.brick_path=brick_path;
+    	datapath=tdatapath;
         initBrick(x, y);
     }
 
@@ -27,9 +28,9 @@ public class Brick extends Sprite {
     private void loadImage() {
 
         
-        var ii= new ImageIcon("src/"+brick_path+".png");
+        var ii= new ImageIcon(datapath+brick_path+".png");
         image = ii.getImage();
-        System.out.println("src/"+brick_path+".png");
+        System.out.println(datapath+brick_path+".png");
     }
 
     boolean isDestroyed() {

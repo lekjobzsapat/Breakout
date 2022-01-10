@@ -7,10 +7,12 @@ public class Ball extends Sprite {
     private int xdir;
     private int ydir;
     private String level;
+    
 
-    public Ball(String level) {
+    public Ball(String level,String tdatapath) {
 
     	this.level=level;
+    	super.datapath=tdatapath;
         initBall();
     }
 
@@ -26,7 +28,7 @@ public class Ball extends Sprite {
 
     private void loadImage() {
 
-        var ii = new ImageIcon("src/"+level+"/ball.png");
+        var ii = new ImageIcon(datapath+level+"/ball.png");
         image = ii.getImage();
     }
 

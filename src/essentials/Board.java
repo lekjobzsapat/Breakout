@@ -37,15 +37,17 @@ public class Board extends JPanel {
     private int width;
     private int height;
     private int N_OF_BRICKS;
+    private String datapath;
     ArrayList<String> lines;
     String level_name;
     int[] datas;
     //private JFrame frame;
-    public Board(String level_name,ArrayList<String> lines,int[]datas ) {
+    public Board(String level_name,ArrayList<String> lines,int[]datas,String datapath) {
     	
     	this.lines=lines;
     	this.level_name=level_name;
     	this.datas=datas;
+    	this.datapath=datapath;
     	System.out.println("Board: level_name "+this.level_name);
         initBoard();
     }
@@ -73,8 +75,8 @@ public class Board extends JPanel {
 
         
 
-        ball = new Ball(level_name);
-        paddle = new Paddle(level_name);
+        ball = new Ball(level_name,datapath);
+        paddle = new Paddle(level_name,datapath);
         
         bricks = new Brick[N_OF_BRICKS];
         int k = 0;
@@ -83,8 +85,8 @@ public class Board extends JPanel {
         	String[] colors = lines.get(i).split(" ");
             for (int j = 0; j < column; j++) {
             	
-                
-            	bricks[k] = new Brick(j * width + 30, i * height + 50,level_name+"/"+colors[j]);
+                System.out.println(level_name);
+            	bricks[k] = new Brick(j * width + 30, i * height + 50,level_name+"/"+colors[j],datapath);
             	
                 k++;
                 
@@ -124,7 +126,7 @@ public class Board extends JPanel {
     private void drawObjects(Graphics2D g2d) {
     	
     	Image image;
-      	var ii = new ImageIcon("src/"+level_name+"/background.png");
+      	var ii = new ImageIcon(datapath+level_name+"/background.png");
         image = ii.getImage();
       	g2d.drawImage(image, 0, 0, 900, 800, this);
     	

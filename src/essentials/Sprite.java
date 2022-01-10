@@ -10,6 +10,7 @@ public class Sprite {
     int imageWidth;
     int imageHeight;
     Image image;
+    String datapath;
 
     protected void setX(int x) {
 

@@ -52,7 +52,7 @@ public class Menu {
 		btn_Game.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				EventQueue.invokeLater(() -> {
-		            Map.Map();
+		            Map.Map();		            
 		           frame.setVisible(false);
 		        });
 			}

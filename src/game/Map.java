@@ -5,13 +5,10 @@ import java.awt.EventQueue;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
-
-import essentials.Breakout;
-
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
+import java.awt.*;
 
 public class Map {
 
@@ -26,6 +23,12 @@ public class Map {
 				try {
 					Map window = new Map();
 					window.frame.setVisible(true);
+					Dimension objDimension = Toolkit.getDefaultToolkit().getScreenSize();
+			        int iCoordX = (objDimension.width - window.frame.getWidth()) / 2;
+			        int iCoordY = (objDimension.height - window.frame.getHeight()) / 2;
+			        window.frame.setLocation(iCoordX, iCoordY); 
+			        window.frame.setResizable(false);
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -38,6 +41,7 @@ public class Map {
 	 */
 	public Map() {
 		initialize();
+		
 	}
 
 	/**

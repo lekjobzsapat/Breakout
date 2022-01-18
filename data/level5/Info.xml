@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<level>
+        <name>Java</name>
+		<row>2</row>
+		<column>8</column>
+		<width>102</width>
+		<height>20</height>
+		<line>h8 h6 h3 h1 h4 h7 h2 h5</line>
+		<line>h1 h3 h4 h7 h5 h2 h6 h8</line>
+		
+</level>

@@ -3,9 +3,9 @@
 <level>
         <name>Minecraft</name>
 		<row>2</row>
-		<column>11</column>
+		<column>21</column>
 		<width>40</width>
 		<height>40</height>
-		<line>cobble dirt cobble dirt cobble dirt cobble dirt cobble dirt cobble</line>
-		<line>dirt cobble dirt cobble dirt cobble dirt cobble dirt cobble dirt</line>
+		<line>cobble dirt cobble dirt cobble dirt cobble dirt cobble dirt cobble cobble dirt cobble cobble dirt cobble cobble dirt cobble dirt</line>
+		<line>dirt cobble cobble dirt cobble dirt cobble dirt cobble dirt cobble cobble dirt cobble cobble dirt cobble dirt dirt dirt cobble</line>
 </level>

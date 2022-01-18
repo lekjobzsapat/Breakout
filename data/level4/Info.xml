@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<level>
+        <name>Shadows</name>
+		<row>2</row>
+		<column>21</column>
+		<width>40</width>
+		<height>10</height>
+		<line>sz sz sz sz sz sz sz sz sz sz sz sz sz sz sz sz sz sz sz sz sz</line>
+		<line>sz sz sz sz sz sz sz sz sz sz sz sz sz sz sz sz sz sz sz sz sz</line>
+</level>

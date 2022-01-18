@@ -2,7 +2,6 @@ package essentials;
 
 import javax.swing.JFrame;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.awt.*;
 

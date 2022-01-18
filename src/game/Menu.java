@@ -4,9 +4,6 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 
-import essentials.Board;
-import essentials.Breakout;
-
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;

@@ -38,7 +38,7 @@ public class Board extends JPanel {
     private int height;
     private int N_OF_BRICKS;
     private String datapath;
-    ArrayList<String> lines;
+    ArrayList<String> lines; 
     String level_name;
     int[] datas;
     //private JFrame frame;
